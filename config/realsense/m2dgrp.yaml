@@ -23,8 +23,8 @@ image0_topic: "/camera/color/image_raw"
 image1_topic: "/camera/aligned_depth_to_color/image_raw"
 output_path: "/home/car/Downloads/newproject9/groundfusion_ws/src/Ground-Fusion/z_output/m2dgrp/"
 
-cam0_calib: "wt_cam.yaml"
-cam1_calib: "wt_cam.yaml"
+cam0_calib: "m2dgrp_depth_config.yaml"
+cam1_calib: "m2dgrp_depth_config.yaml"
 image_width: 640
 image_height: 480
    

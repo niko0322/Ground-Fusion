@@ -1359,7 +1359,7 @@ void Estimator::processImagewithline(const map<int, vector<pair<int, Eigen::Matr
         if (solver_flag == NON_LINEAR && USE_PLANE)
             initPlane();
     }
-    else // not ini
+    else // not init
     {
         TicToc t_solve;
         if (!USE_IMU)

@@ -83,7 +83,7 @@ endif(X11_FOUND)
 find_package(Boost REQUIRED COMPONENTS thread)
 find_package(OpenCV 4 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
-
+include_directories( /devdata/softwarelib/Sophus_no_template/)
 # Enable OPENCV in darknet
 add_definitions(-DOPENCV)
 add_definitions(-O4 -g)
@@ -321,12 +321,15 @@ add_library(vins_lib
   src/factor/pose_anchor_factor.cpp
   src/initial/gnss_vi_initializer.cpp
 )
-target_link_libraries(vins_lib ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES} /usr/local/lib/libSophus.so fmt)
+# target_link_libraries(vins_lib ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES} /usr/# # local/lib/libSophus.so fmt)
+
+target_link_libraries(vins_lib ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES} /devdata/softwarelib/Sophus_no_template/build/libSophus.so fmt)
 
 add_executable(vins_node src/rosNodeTest.cpp)
-target_link_libraries(vins_node vins_lib /usr/local/lib/libSophus.so
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/linefeatureTracker/line_descriptor/lib/liblinedesc.so
-)
+# target_link_libraries(vins_node vins_lib /usr/local/lib/libSophus.so
+#   ${CMAKE_CURRENT_SOURCE_DIR}/src/linefeatureTracker/line_descriptor/lib/liblinedesc.so
+# )
+target_link_libraries(vins_node vins_lib ${CMAKE_CURRENT_SOURCE_DIR}/src/linefeatureTracker/line_descriptor/lib/liblinedesc.so )
 
 # add_executable(kitti_odom_test src/KITTIOdomTest.cpp)
 # target_link_libraries(kitti_odom_test vins_lib)

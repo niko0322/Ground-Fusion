@@ -151,6 +151,12 @@ extern uint32_t GNSS_TRACK_NUM_THRES;
 extern double GNSS_DDT_WEIGHT;
 extern std::string GNSS_RESULT_PATH;
 
+//yolo模型和类名变量
+extern std::string MODEL_FILE;
+extern std::string CLASSES_FILE;
+extern int DETECT; 
+extern std::vector<std::string> DYNAMIC_LABEL;
+
 void readParameters(std::string config_file);
 
 enum SIZE_PARAMETERIZATION
